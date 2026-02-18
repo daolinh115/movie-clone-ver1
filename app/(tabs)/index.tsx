@@ -38,7 +38,7 @@ const Home = () => {
               onPress={() => route.push("/search")}
             />
             <>
-              <Text className="text-lg text-white font-bold mt-5 mb-3">
+              <Text className="text-lg text-white font-bold mt-5">
                 Lastest Movies
               </Text>
             </>
