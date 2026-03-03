@@ -10,7 +10,7 @@ interface props {
 
 const SearchBar = ({ placeholder, onPress }: props) => {
   return (
-    <View className="flex-row items-center gap-2 px-5 py-1 border border-white rounded-3xl">
+    <View className="flex-row items-center gap-2 px-5 py-1 rounded-3xl">
       <Image
         source={icons.search}
         tintColor={"#ffffff"}
