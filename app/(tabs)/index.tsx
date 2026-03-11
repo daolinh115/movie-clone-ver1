@@ -1,3 +1,4 @@
+import MoviesCard from "@/components/MoviesCard";
 import SearchBar from "@/components/SearchBar";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
@@ -44,9 +45,7 @@ const Home = () => {
       ) : (
         <FlatList
           data={movies}
-          renderItem={({ item }) => (
-            <Text className="text-white text-sm px-5 py-2">{item.title}</Text>
-          )}
+          renderItem={({ item }) => <MoviesCard />}
           keyExtractor={(item) =>
             item.id?.toString() || Math.random().toString()
           }
