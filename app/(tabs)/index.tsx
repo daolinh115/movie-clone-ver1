@@ -14,7 +14,7 @@ const Home = () => {
     data: movies,
     loading: moviesLoading,
     error: moviesError,
-  } = useFetch(() => fetchMovie({ query: "" }));
+  } = useFetch(() => fetchMovie({ query: "iron man" }));
   const renderHeader = () => (
     <View className="mt-20 mx-auto w-full px-5">
       <Image source={icons.logo} className="h-12 w-10 mx-auto mb-5" />
@@ -45,7 +45,7 @@ const Home = () => {
       ) : (
         <FlatList
           data={movies}
-          renderItem={({ item }) => <MoviesCard />}
+          renderItem={({ item }) => <MoviesCard {...item} />}
           keyExtractor={(item) =>
             item.id?.toString() || Math.random().toString()
           }
@@ -53,7 +53,13 @@ const Home = () => {
           contentContainerStyle={{ paddingBottom: 20 }}
           scrollEnabled={true}
           numColumns={3}
-          columnWrapperStyle={{}}
+          columnWrapperStyle={{
+            justifyContent: "flex-start",
+            gap: 10,
+            paddingRight: 5,
+            marginBottom: 10,
+          }}
+          className="mt-2 pb-32"
         />
       )}
     </View>
