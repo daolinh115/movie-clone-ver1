@@ -50,7 +50,7 @@ const Home = () => {
             item.id?.toString() || Math.random().toString()
           }
           ListHeaderComponent={renderHeader}
-          contentContainerStyle={{ paddingBottom: 20 }}
+          contentContainerStyle={{ paddingBottom: 100 }}
           scrollEnabled={true}
           numColumns={3}
           columnWrapperStyle={{

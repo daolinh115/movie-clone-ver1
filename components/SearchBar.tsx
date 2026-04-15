@@ -6,9 +6,11 @@ import { AppColor } from "@/constants/Style";
 interface props {
   placeholder: string;
   onPress?: () => void;
+  value?: string;
+  onChangeText?: (text: string) => void;
 }
 
-const SearchBar = ({ placeholder, onPress }: props) => {
+const SearchBar = ({ placeholder, onPress, value, onChangeText }: props) => {
   return (
     <View className="flex-row items-center gap-2 px-5 py-1 rounded-3xl">
       <Image
@@ -20,8 +22,10 @@ const SearchBar = ({ placeholder, onPress }: props) => {
       <TextInput
         placeholder={placeholder}
         onPress={onPress}
-        className="flex-1"
+        className="flex-1 text-white"
         placeholderTextColor={"#ffffff"}
+        value={value}
+        onChangeText={onChangeText}
       />
     </View>
   );
