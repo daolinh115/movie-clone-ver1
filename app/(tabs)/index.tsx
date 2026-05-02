@@ -46,9 +46,7 @@ const Home = () => {
         <FlatList
           data={movies}
           renderItem={({ item }) => <MoviesCard {...item} />}
-          keyExtractor={(item) =>
-            item.id?.toString() || Math.random().toString()
-          }
+          keyExtractor={(item) => item.id?.toString()}
           ListHeaderComponent={renderHeader}
           contentContainerStyle={{ paddingBottom: 100 }}
           scrollEnabled={true}

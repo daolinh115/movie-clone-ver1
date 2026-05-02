@@ -22,7 +22,7 @@ export const fetchMovie = async ({ query }: { query: string }) => {
     });
     if (!response.ok) {
       throw new Error(
-        `Fail to fetch movie ${response.statusText} (Stutas: ${response.status})`,
+        `Fail to fetch movie ${response.statusText} (Status: ${response.status})`,
       );
     }
     const data = await response.json();
@@ -31,9 +31,7 @@ export const fetchMovie = async ({ query }: { query: string }) => {
     }
     return data.results;
   } catch (error) {
-    if (error instanceof Error) {
-      throw new Error(`Fail to fetch movie ${error.message}`);
-    }
+    const message = error instanceof Error ? error.message : "unknown error";
+    throw new Error(`fail to fetch movies: ${message}`);
   }
-  throw new Error(`An unknonw Error when fetching movie`);
 };

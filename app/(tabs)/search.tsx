@@ -3,6 +3,7 @@ import SearchBar from "@/components/SearchBar";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
 import { fetchMovie } from "@/services/api";
+import { updateSearchCount } from "@/services/appwrite";
 import useFetch from "@/services/useFetch";
 import React, { useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, Image, Text, View } from "react-native";
@@ -28,6 +29,13 @@ const Search = () => {
     }, 500);
     return () => clearTimeout(timeoutId);
   }, [searchQuery, loadMovies, reset]);
+  // Effect 2: Chỉ lo việc cập nhật Appwrite khi danh sách 'movies' thay đổi
+  useEffect(() => {
+    // Khi movies đã được loadMovies (ở Effect 1) cập nhật thành công và có dữ liệu
+    if (movies && movies.length > 0) {
+      updateSearchCount(searchQuery, movies[0]);
+    }
+  }, [movies, searchQuery]); // Chỉ chạy khi 'movies' thay đổi
 
   return (
     <View className="flex-1 bg-primary">
